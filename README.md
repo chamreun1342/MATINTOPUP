@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="km">
 <head>
     <meta charset="UTF-8">
@@ -220,3 +221,4 @@
     renderProducts(1);
 </script>
 </body>
+</html>
