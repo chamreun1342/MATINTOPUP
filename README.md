@@ -115,7 +115,7 @@
         <i class="fas fa-times" onclick="toggleMenu()" style="cursor:pointer; font-size:20px;"></i>
     </div>
     
-    <a href="https://t.me/Matintopup168" target="_blank" class="contact-btn">
+    <a href="https://t.me/matintopup" target="_blank" class="contact-btn">
         <i class="fab fa-telegram" style="color:#24A1DE; font-size:24px;"></i>
         <div>
             <div style="font-size:14px; font-weight:bold;">តេឡេក្រាមផ្ទាល់ខ្លួន</div>
@@ -123,7 +123,7 @@
         </div>
     </a>
 
-    <a href="https://t.me/matintopup" target="_blank" class="contact-btn">
+    <a href="https://t.me/Matintopup168" target="_blank" class="contact-btn">
         <i class="fas fa-users" style="color:#3dd0f3; font-size:20px;"></i>
         <div>
             <div style="font-size:14px; font-weight:bold;">តេឡេក្រាមគ្រុប</div>
