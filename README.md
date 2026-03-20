@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="km">
 <head>
     <meta charset="UTF-8">
@@ -370,4 +369,3 @@
     });
 </script>
 </body>
-</html>
