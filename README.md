@@ -224,43 +224,43 @@
         <div style="font-size:14px; font-weight:bold; margin-bottom:12px;">💎 SAVING PACKAGES</div>
         <div class="uc-grid">
             <div class="uc-item" onclick="selectUC(this, '60 UC', 0.99)">
-                <img src="Screenshot_20260321-005550_CapCut.jpg" alt="UC">
+                <img src="Screenshot_20260321-005550_.jpg" alt="UC">
                 <br>
                 <b style="color:var(--text-gold);">$0.99</b><br>
                 <span style="font-size:11px;">60 UC</span>
             </div>
             <div class="uc-item" onclick="selectUC(this, '325 UC', 4.49)">
-                <img src="Screenshot_20260321-005436_CapCut.jpg" alt="UC">
+                <img src="Screenshot_20260321-005436_.jpg" alt="UC">
                 <br>
                 <b style="color:var(--text-gold);">$4.99</b><br>
                 <span style="font-size:11px;">325 UC</span>
             </div>
             <div class="uc-item" onclick="selectUC(this, '660 UC', 9.99)">
-                <img src="Screenshot_20260321-005529_CapCut.jpg" alt="UC">
+                <img src="Screenshot_20260321-005529_.jpg" alt="UC">
                 <br>
                 <b style="color:var(--text-gold);">$9.99</b><br>
                 <span style="font-size:11px;">660 UC</span>
             </div>
             <div class="uc-item" onclick="selectUC(this, '1800 UC', 24.99)">
-                <img src="Screenshot_20260321-005529_CapCut.jpg" alt="UC">
+                <img src="Screenshot_20260321-005529_.jpg" alt="UC">
                 <br>
                 <b style="color:var(--text-gold);">$24.99</b><br>
                 <span style="font-size:11px;">1800 UC</span>
             </div>
             <div class="uc-item" onclick="selectUC(this, '3850 UC', 45.49)">
-                <img src="Screenshot_20260321-005504_CapCut.jpg" alt="UC">
+                <img src="Screenshot_20260321-005504_.jpg" alt="UC">
                 <br>
                 <b style="color:var(--text-gold);">$45.49</b><br>
                 <span style="font-size:11px;">3850 UC</span>
             </div>
             <div class="uc-item" onclick="selectUC(this, '8100 UC', 90.49)">
-                <img src="Screenshot_20260321-005504_CapCut.jpg" alt="UC">
+                <img src="Screenshot_20260321-005504_.jpg" alt="UC">
                 <br>
                 <b style="color:var(--text-gold);">$90.49</b><br>
                 <span style="font-size:11px;">8100 UC</span>
             </div>
             <div class="uc-item" onclick="selectUC(this, '16200 UC', 180.49)">
-                <img src="Screenshot_20260321-005504_CapCut.jpg" alt="UC">
+                <img src="Screenshot_20260321-005504_.jpg" alt="UC">
                 <br>
                 <b style="color:var(--text-gold);">$180.49</b><br>
                 <span style="font-size:11px;">16200 UC</span>
