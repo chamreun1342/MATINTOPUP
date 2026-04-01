@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MATIN</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff1493">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="MATIN">
+    <link rel="apple-touch-icon" href="matin.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-body: #ff1493; 
+            --bg-card: #ffffff;
+            --txt-main: #000000;
+            --pink-dark: #ff1493;
+            --header-bg: #ffffff;
+            --txt-divider: #ffffff;
+        }
+
+        body.dark-mode {
+            --bg-body: #000000; 
+            --bg-card: #1a1a1a;
+            --txt-main: #ffffff;
+            --pink-dark: #ff69b4;
+            --header-bg: #1a1a1a;
+            --txt-divider: var(--pink-dark);
+        }
+
+        * { box-sizing: border-box; transition: 0.3s; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Khmer OS Battambang', sans-serif; background: var(--bg-body); margin: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; color: var(--txt-main); overflow-x: hidden; }
+        
+        img { 
+            max-width: 100%; 
+            height: auto; 
+            background: transparent !important; 
+            border: none !important;
+            box-shadow: none !important;
+            object-fit: contain;
+        }
+
+        .site-header { position: fixed; top: 0; width: 100%; max-width: 500px; height: 70px; background: var(--header-bg); display: flex; align-items: center; justify-content: space-between; z-index: 1100; padding: 0 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .site-name { font-size: 28px; font-weight: 900; color: #fff; text-shadow: 0 0 8px #ff4500, 0 0 20px #ff0000; animation: fire-burn 0.5s infinite alternate; }
+        @keyframes fire-burn { from { transform: scale(1); } to { transform: scale(1.05); } }
+        
+        .marquee-sticky { position: fixed; top: 70px; width: 100%; max-width: 500px; background: #ff0000; color: white; padding: 8px 0; font-size: 14px; font-weight: bold; z-index: 1050; overflow: hidden; white-space: nowrap; }
+        .marquee-text { display: inline-block; padding-left: 100%; animation: marquee-play 15s linear infinite; }
+        @keyframes marquee-play { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+        .app-container { width: 100%; max-width: 500px; padding-top: 120px; flex: 1; padding-bottom: 30px; }
+        .h-btn { padding: 6px 12px; background: rgba(255,20,147,0.1); border-radius: 8px; border: 1px solid var(--pink-dark); cursor: pointer; color: var(--pink-dark); font-weight: bold; display: flex; align-items: center; gap: 5px; }
+
+        .section-divider { padding: 20px 20px 10px; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: bold; color: var(--txt-divider); }
+        .section-divider::before { content: ""; width: 18px; height: 3px; background: var(--txt-divider); border-radius: 10px; }
+
+        .grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 0 15px 15px; }
+        
+        .menu-card { 
+            background: var(--bg-card); 
+            padding: 15px 5px; 
+            border-radius: 20px; 
+            text-align: center; 
+            text-decoration: none; 
+            color: var(--txt-main); 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+            border: 1px solid rgba(255,20,147,0.1);
+        }
+        
+        .menu-card img { width: 42px; height: 42px; margin-bottom: 8px; }
+        .game-card img { width: 55px !important; height: 55px !important; }
+        .menu-card span { font-weight: bold; font-size: 11px; }
+
+        .footer-sticky { width: 100%; max-width: 500px; background: var(--bg-card); padding: 20px; text-align: center; border-top: 1px solid rgba(0,0,0,0.1); }
+        .footer-text { font-size: 13px; color: var(--txt-main); margin-top: 10px; line-height: 1.6; opacity: 0.8; }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div style="display:flex; align-items:center; gap:8px;">
+        <img src="matin.png" style="width:45px; height:45px; border-radius:12px;">
+        <span class="site-name">MATIN</span>
+    </div>
+    <div style="display: flex; gap: 8px;">
+        <button class="h-btn" onclick="toggleLang()" id="langBtn"><span>🇰🇭 KH</span></button>
+        <button class="h-btn" onclick="toggleTheme()"><i id="themeIcon" class="fas fa-moon"></i></button>
+    </div>
+</header>
+
+<div class="marquee-sticky">
+    <div class="marquee-text" id="marqueeTxt">សូមស្វាគមន៍មកកាន់ MATIN! សេវាកម្មរហ័សទាន់ចិត្ត សុវត្តិភាព100% និង ទំនុកចិត្តខ្ពស់បំផុត</div>
+</div>
+
+<div class="app-container">
+    <div class="section-divider" id="secPopular">កម្មវិធីប្រើ free</div>
+    <div class="grid-container">
+        <a href="https://chamreun1342.github./MATIN-SHOP/" class="menu-card">
+            <img src="20260401_173535.png">
+            <span class="label" data-kh="បង្វិលដោយចៃដន្យ" data-en="Random picker">បង្វិលដោយចៃដន្យ</span>
+        </a>
+        <a href="https://chamreun1342.github.io/MATIN168/" class="menu-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2904/2904973.png">
+            <span class="label" data-kh="សារភាពស្នេហ៍" data-en="Love Message">សារភាពស្នេហ៍</span>
+        </a>
+        <a href="https://chamreun1342.github.io/Delete-all/" class="menu-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2541/2541991.png">
+            <span class="label" data-kh="ក្លូនអក្សរ" data-en="Text Clone">ក្លូនអក្សរ</span>
+        </a>
+    </div>
+
+    <div class="section-divider" id="secTopup">បុកលុយហ្គេមនិងផ្សារ</div>
+    <div class="grid-container">
+        <a href="https://www.matintopup.store" class="menu-card game-card">
+            <img src="matin.png">
+            <span class="label" data-kh="បុកលុយហ្គេម" data-en="GameTopUp">បុកលុយហ្គេម</span>
+        </a>
+        <a href="https://chamreun1342.github.io/MATIN-SHOP/" class="menu-card game-card">
+            <img src="shop.png">
+            <span class="label" data-kh="ផ្សារឧបករណ៍លេងហ្គេម" data-en="Game console market">ផ្សារឧបករណ៍លេងហ្គេម</span>
+        </a>
+    </div>
+
+    <div class="section-divider" id="secAdmin">Admin / ទំនាក់ទំនង</div>
+    <div class="grid-container">
+        <a href="https://facebook.com/yourprofile" target="_blank" class="menu-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png">
+            <span>Page</span>
+        </a>
+        <a href="https://t.me/yourusername" target="_blank" class="menu-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png">
+            <span>Telegram groub</span>
+        </a>
+        <a href="https://t.me/yourusername" target="_blank" class="menu-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png">
+            <span>Telegram admin</span>
+        </a>
+        <a href="https://t.me/yourusername" target="_blank" class="menu-card">
+            <img src="tiktok.png">
+            <span>TikTok</span>
+        </a>
+    </div>
+</div>
+
+<footer class="footer-sticky">
+    <b id="footerAbout">អំពី MATIN</b>
+    <p class="footer-text" id="footerDesc">វេទិកាដែលអ្នកទុកចិត្តសម្រាប់សេវាកម្មនិងឧបករណ៍ឌីជីថល។ យើងផ្តល់នូវដំណោះស្រាយរហ័ស ទុកចិត្តបាន និងមានតម្លៃសមរម្យសម្រាប់អ្នកលេងហ្គេម អ្នកបង្កើតខ្លឹមសារ និងអាជីវកម្ម</p>
+</footer>
+
+<script>
+    function initSmartBack() {
+        window.history.pushState({ page: 'home' }, '', window.location.href);
+        window.onpopstate = function() {
+            window.history.pushState({ page: 'home' }, '', window.location.href);
+        };
+    }
+    initSmartBack();
+
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        document.getElementById('themeIcon').className = isDark ? "fas fa-sun" : "fas fa-moon";
+    }
+
+    function toggleLang() {
+        const btn = document.getElementById('langBtn');
+        const isKhmer = btn.innerText.includes('KH');
+        btn.innerHTML = isKhmer ? '<span>🇺🇲 EN</span>' : '<span>🇰🇭 KH</span>';
+        
+        document.getElementById('secTopup').innerText = isKhmer ? "Game TopUp" : "បុកលុយហ្គេម";
+        document.getElementById('secPopular').innerText = isKhmer ? "Free user program" : "កម្មវិធីប្រើ free";
+        document.getElementById('secAdmin').innerText = isKhmer ? "Admin / Contact" : "Admin / ទំនាក់ទំនង";
+        document.getElementById('footerAbout').innerText = isKhmer ? "About MATIN" : "អំពី MATIN";
+        
+        document.querySelectorAll('.label').forEach(el => {
+            el.innerText = isKhmer ? el.getAttribute('data-en') : el.getAttribute('data-kh');
+        });
+    }
+
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('sw.js').then(function(registration) {
+                console.log('ServiceWorker registration successful');
+            }, function(err) {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+    }
+</script>
+</body>
+</html>
